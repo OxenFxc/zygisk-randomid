@@ -1,0 +1,31 @@
+name: Build
+on:
+  workflow_dispatch:
+      inputs:
+        package_name:
+          description: "包名:"
+          required: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+    - name: Set up Java
+      uses: actions/setup-java@v4
+      with:
+        distribution: temurin
+        java-version: 11
+        cache: gradle
+    - name: 构建并替换名字
+      run: |
+        chmod +x ./gradlew
+        sed -i 's/moduleDescription = "/moduleDescription = "(${{ github.event.inputs.package_name }}) /g' module.gradle
+        sed -i "s/com.example.game/${{ github.event.inputs.package_name }}/g" module/src/main/cpp/main.cpp
+        ./gradlew :module:assembleRelease
+    - name: Upload artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: zygisk-randomid
+        path: out/magisk_module_release/
