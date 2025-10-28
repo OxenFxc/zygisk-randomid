@@ -1,5 +1,5 @@
 #pragma once
-#include <zygisk.h>
+#include <zygisk.hpp>
 #include <random>
 #include <sstream>
 #include <iomanip>
