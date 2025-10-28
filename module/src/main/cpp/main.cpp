@@ -17,7 +17,7 @@ struct ZygiskModule : zygisk::ModuleBase {
     void onLoad(zygisk::Api *api, JNIEnv *env) override {
         this->api = api;
         this->env = env;
-        this->target_pkg = "com.LunariteStudio.WastelandStory"; // 目标包名（替换原com.example.game）
+        this->target_pkg = "com.example.game"; // 目标包名（替换原com.example.game）
         LOGI("Zygisk module loaded, waiting for app specialize");
     }
 
