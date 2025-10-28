@@ -1,0 +1,9 @@
+ext {
+    moduleLibraryName = "randomid"
+    magiskModuleId = "zygisk_randomid"
+    moduleName = "Randomid"
+    moduleAuthor = "DifierLine"
+    moduleDescription = "Randomid Zygisk version."
+    moduleVersion = "v1.2.0"
+    moduleVersionCode = 1
+}
