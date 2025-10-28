@@ -7,10 +7,7 @@
 #include <thread>
 #include <android/log.h>
 
-#define LOGI(...) __android_log_print(ANDROID_LOG_INFO, "ZygiskDeviceRand", __VA_ARGS__)
-#define LOGE(...) __android_log_print(ANDROID_LOG_ERROR, "ZygiskDeviceRand", __VA_ARGS__)
 
-// 全局线程安全随机数引擎
 static std::mt19937_64 s_rand_engine(std::random_device{}());
 
 // 随机工具函数（生成符合格式的设备标识）
