@@ -10,11 +10,8 @@
 #include <unistd.h>
 #include <cinttypes>
 #include "log.h"
-
-// 仅保留1个zygisk.hpp引用（避免重复包含）
 #include "zygisk.hpp"
 
-// 基于Zygisk API v2实现模块类（完全匹配头文件接口）
 struct ZygiskModule : zygisk::ModuleBase {
 
     void onLoad(zygisk::Api *api, JNIEnv *env) override {
